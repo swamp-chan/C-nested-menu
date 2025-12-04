@@ -137,9 +137,9 @@ void main_loop(Menu_Item *curr_menu){
 
 void print_menu(Menu_Item *curr_menu){
 		for(int i = 0; curr_menu[i].id != 0; i++){
-			printf("\n%d. %s",curr_menu[i].id,curr_menu[i].title);
+			printf("%d. %s\n",curr_menu[i].id,curr_menu[i].title);
 			if(curr_menu[i+1].type == RETURN || curr_menu[i+1].type == QUIT){
-				printf("%d. %s",curr_menu[i],curr_menu[i].title);
+				printf("%d. %s\n",curr_menu[i+1],curr_menu[i+1].title);
 			}
 		}	
 		printf("\n");
