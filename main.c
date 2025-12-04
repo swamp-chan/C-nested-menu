@@ -38,6 +38,9 @@ Menu_Item *finditem(Menu_Item *menu, int opt){
 		if(menu[i].id == opt){
 			return &menu[i];
 		}
+		if(menu[i+1].type == QUIT || menu[i+1].type == RETURN){
+			return &menu[i+1];
+		}
 	}
 	return NULL;
 }
@@ -113,6 +116,7 @@ void main_loop(Menu_Item *curr_menu){
 		if(selected_obj == NULL){
 			system("cls");
 			printf("\nINVALID SELECTION!!");
+			while(getchar()!='\n');
 			getchar();
 		}
 		else{
@@ -127,7 +131,7 @@ void main_loop(Menu_Item *curr_menu){
 					return;
 					break;
 				case QUIT:
-					return;
+					exit(0);
 					break;
 			}
 		}
