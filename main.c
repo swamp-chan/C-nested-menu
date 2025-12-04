@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <math.h>
 
 #define author "NAME"
 
@@ -26,11 +27,7 @@ void pre_menu();
 void pre_function();
 void post_function();
 void print_menu(Menu_Item *a);
-void execute_funcion(program_function running_program){
-	pre_function();
-	running_program();
-	post_function();
-}
+void execute_funcion(program_function r); 
 void main_loop(Menu_Item *menu);
 
 Menu_Item *finditem(Menu_Item *menu, int opt){
@@ -59,26 +56,58 @@ void l1_sumandaverage(){
 
 void l1_area_circumference_circle(){
 	float r,area,cir;
-	printf("Enter the value of radius: ",&r);
-	scanf("%f",r);
+	printf("Enter the value of radius: ",r);
+	scanf("%f",&r);
 	area = 3.14*r*r;
 	cir = 2*3.14*r;
 	printf("The area = %.2f and circumference = %.2f", area,cir);
 }
 
+void square_n_cube(){
+	float n;
+	printf("Enter number: ");
+	scanf("%f",&n);
+	printf("square root: %.2f\ncuberoot: %.2f",sqrt(n),cbrt(n));
+}
+
+void SI_amount(){
+	float p,t,r,SI,am;
+	printf("Enter (p,t,r): ");
+	scanf("%f,%f,%f",&p,&t,&r);
+	SI = (p*t*r)/100;
+	am = p+SI;
+	printf("SI = %.2f\nAmount = %.2f",SI,am);
+}
 
 //menu's and menu items
 Menu_Item labwork1[] = {
 	{1, "Find the sum and average of three numbers", program,{.pfunction = l1_sumandaverage}},
+	{2, "Area and circum of circle",program,{.pfunction = l1_area_circumference_circle}},
+	{3, "Find the square and cube root",program,{.pfunction = square_n_cube}},
+	{4,"Find the SI and net amount",program,{.pfunction = SI_amount}},
 	{0, "Return",RETURN,{.pfunction = NULL}}
 };
 
 Menu_Item labwork2[] = {
+	{1, "something",program},
+	{0, "Return",RETURN,{.pfunction = NULL}}
+};
+
+Menu_Item labwork3[] = {
+	{1, "something",program},
+	{0, "Return",RETURN,{.pfunction = NULL}}
+};
+
+Menu_Item labwork4[] = {
+	{1, "something",program},
 	{0, "Return",RETURN,{.pfunction = NULL}}
 };
 
 Menu_Item main_menu[] = {
 	{1, "Labwork 1",sub_menu,{.submenu = labwork1}},
+	{2, "Labwork 2",sub_menu,{.submenu = labwork2}},
+	{3, "Labwork 3",sub_menu,{.submenu = labwork3}},
+	{4, "Labwork 4",sub_menu,{.submenu = labwork4}},
 	{0, "Quit Program.",QUIT,{.submenu = NULL}}
 };
 
@@ -103,6 +132,12 @@ void post_function(){
 void pre_menu(){
 	system("cls");
 	printf("---MENU---.\nPlease pick which labwork you want to view:\n\n");
+}
+
+void execute_funcion(program_function running_program){
+	pre_function();
+	running_program();
+	post_function();
 }
 
 void main_loop(Menu_Item *curr_menu){
