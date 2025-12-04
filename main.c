@@ -38,7 +38,7 @@ Menu_Item *finditem(Menu_Item *menu, int opt){
 		if(menu[i].id == opt){
 			return &menu[i];
 		}
-		if(menu[i+1].type == QUIT || menu[i+1].type == RETURN){
+		if((menu[i+1].type == QUIT || menu[i+1].type == RETURN) && menu[i+1].id == opt){
 			return &menu[i+1];
 		}
 	}
@@ -67,16 +67,19 @@ void l1_area_circumference_circle(){
 }
 
 
-//menu items
-//
+//menu's and menu items
 Menu_Item labwork1[] = {
-	{1, "Find the sum and average of three numbers", program, .action = {.pfunction = l1_sumandaverage}},
-	{0, "Return",RETURN,.action = {.pfunction = NULL}}
+	{1, "Find the sum and average of three numbers", program,{.pfunction = l1_sumandaverage}},
+	{0, "Return",RETURN,{.pfunction = NULL}}
+};
+
+Menu_Item labwork2[] = {
+	{0, "Return",RETURN,{.pfunction = NULL}}
 };
 
 Menu_Item main_menu[] = {
-	{1, "Labwork 1",sub_menu,.action = {.submenu = labwork1}},
-	{0, "Quit Program.",QUIT,.action = {.submenu = NULL}}
+	{1, "Labwork 1",sub_menu,{.submenu = labwork1}},
+	{0, "Quit Program.",QUIT,{.submenu = NULL}}
 };
 
 
