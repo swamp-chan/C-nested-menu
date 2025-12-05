@@ -79,12 +79,29 @@ void SI_amount(){
 	printf("SI = %.2f\nAmount = %.2f",SI,am);
 }
 
+void centigrade_to_f(){
+	float c,f;
+	printf("Enter temperature in Centigrade: ");
+	scanf("%f",&c);
+	f = 1.8*c+32;
+	printf("\nThe temperature in Farenheit: %.2f",f);
+}
+
+void displacement(){
+	float s,u,a,t;
+	printf("Enter u,a,t: ");
+	scanf("%f,%f,%f",&u,&a,&t);
+	s = u*t + 0.5*a*t*t;
+	printf("\nDisplacement: %.2f",s);
+}
 //menu's and menu items
 Menu_Item labwork1[] = {
 	{1, "Find the sum and average of three numbers", program,{.pfunction = l1_sumandaverage}},
 	{2, "Area and circum of circle",program,{.pfunction = l1_area_circumference_circle}},
 	{3, "Find the square and cube root",program,{.pfunction = square_n_cube}},
-	{4,"Find the SI and net amount",program,{.pfunction = SI_amount}},
+	{4, "Find the SI and net amount",program,{.pfunction = SI_amount}},
+	{5, "Centigrade to Farenheit",program,{.pfunction = centigrade_to_f}},
+	{6, "Calclate displacement",program,{.pfunction = displacement}},
 	{0, "Return",RETURN,{.pfunction = NULL}}
 };
 
