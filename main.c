@@ -94,6 +94,58 @@ void displacement(){
 	s = u*t + 0.5*a*t*t;
 	printf("\nDisplacement: %.2f",s);
 }
+
+void TSA_cuboid(){
+	float l,b,h,TSA;
+	printf("Enter length, breadth, and height: ");
+	scanf("%f,%f,%f",&l,&b,&h);
+	TSA = 2*(l*b+b*h+l*h);
+	printf("The TSA = %.2f",TSA);
+}
+
+void km_meter_sum(){
+	int km1,m1,km2,m2,km3,m3;
+	printf("Enter distance 1(km1,m1): ");
+	scanf("%d,%d",&km1,&m1);
+	printf("\nEnter distance 2(km2,m2): ");
+	scanf("%d,%d",&km2,&m2);
+	km3 = km1+km2+(m1+m2)/1000;
+	m3 = (m1+m2)%1000;
+	printf("\nThe sum of the distances: %dkm and %dm",km3,m3);
+}
+
+void final_velocity(){
+	float v,u,a,s;
+	printf("Enter the values of u,a,s: ");
+	scanf("%f,%f,%f",&u,&a,&s);
+	v = sqrt(u + 2*a*s);
+	printf("The value of v = %.2f",v);
+}
+
+void total_seconds(){
+	int total_s,sec,min,hr;
+	printf("Enter the total seconds: ");
+	scanf("%d",&total_s);
+	hr = total_s/3600;
+	min = (total_s/60)%60;
+	sec = (total_s%60);
+	printf("%dhr %dmin and %dsec",hr,min,sec);
+}
+
+void string_io(){
+	char name[16],address[16];
+	int grade;
+	printf("Enter your name: ");
+	scanf("%s",name);
+	fflush(stdin);
+	printf("Enter address: ");
+	gets(address);
+	printf("Enter grade: ");
+	scanf("%d",&grade);
+	printf("\n%s is your name and you live in %s studying in %d",name,address,grade);
+}
+
+
 //menu's and menu items
 Menu_Item labwork1[] = {
 	{1, "Find the sum and average of three numbers", program,{.pfunction = l1_sumandaverage}},
@@ -102,6 +154,11 @@ Menu_Item labwork1[] = {
 	{4, "Find the SI and net amount",program,{.pfunction = SI_amount}},
 	{5, "Centigrade to Farenheit",program,{.pfunction = centigrade_to_f}},
 	{6, "Calclate displacement",program,{.pfunction = displacement}},
+	{7, "TSA of a cuboid",program,{.pfunction = TSA_cuboid}},
+	{8, "Sum of distances(km and m)",program,{.pfunction = km_meter_sum}},
+	{9, "Find v",program,{.pfunction = final_velocity}},
+	{10,"Convert total seconds to hr,min,s",program,{.pfunction = total_seconds}},
+	{11, "String input and output",program,{.pfunction = string_io}},
 	{0, "Return",RETURN,{.pfunction = NULL}}
 };
 
