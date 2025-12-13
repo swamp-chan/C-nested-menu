@@ -346,7 +346,7 @@ void choice(){
 	int a,b,choice,result;
 	printf("Enter two numbers: ");
 	scanf("%d,%d",&a,&b);
-	printf("\nInput choice: \n1. SUM\n2. PRODUCT\n3. DIFFERENCE\n5. DIVISION");
+	printf("\nInput choice: \n1. SUM\n2. PRODUCT\n3. DIFFERENCE\n4. DIVISION\n");
 	scanf("%d",&choice);
 	if(choice == 1){
 		result = a+b;
@@ -361,7 +361,7 @@ void choice(){
 		result = a/b;
 	}
 	else{
-		printf("Enter proper choice");
+		printf("\nEnter proper choice");
 		return;
 	}
 	printf("The result = %d",result);
