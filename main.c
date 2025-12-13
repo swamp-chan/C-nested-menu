@@ -1,8 +1,9 @@
+
 #include <stdio.h>
 #include <stdlib.h>
 #include <math.h>
 
-#define author "NAME"
+#define author "Sambeed Shrestha"
 
 typedef void (*program_function)();
 
@@ -145,7 +146,226 @@ void string_io(){
 	printf("\n%s is your name and you live in %s studying in %d",name,address,grade);
 }
 
+//labwork 2
+void odd_even(){
+	printf("Enter number: ");
+	int n;
+	scanf("%d",&n);
+	if(n%2 == 0){
+		printf("The number is even");
+	}
+	else
+	{
+		printf("The number is odd");
+	}
+}
 
+void age_eligible(){
+	int age;
+	printf("Input age: ");
+	scanf("%d",&age);
+	if(age>=18){
+		printf("This person is eligible to vote");
+	}
+	else{
+		printf("This person is not eligible to vote");
+	}
+}
+
+void positive_negative(){
+	int n;
+	printf("Input number ");
+	scanf("%d",&n);
+	if(n>0){
+		printf("The number is postive");
+	}
+	else if(n<0)
+	{
+		printf("The number is negative");
+	}
+	else{
+		printf("The number is 0");
+	}
+}
+
+void greater_number(){
+	int a,b;
+	printf("Enter two numbers a,b: ");
+	scanf("%d,%d",&a,&b);
+	if(a>b){
+		printf("\n%d is the greater number",a);
+	}
+	else if(a<b){
+		printf("\n%d is the greater number",b);
+	}
+	else{
+		printf("They are equal numbers");
+	}
+}
+
+void middle_number(){
+	int a,b,c;
+	printf("Enter three numbers: a,b,c: ");
+	scanf("%d,%d,%d",&a,&b,&c);
+	if((a>b && a<c) || (a<b && a>c)){
+		printf("%d is the middle number",a);
+	}
+	else if((b>a && b<c) || ((b<a) && (b>c))){
+		printf("%d is the middle number",b);
+	}
+	else if((c>a && c<b) || (c<a && c>b)){
+		printf("%d is the middle number",c);
+	}
+	else{
+		printf("Equal numbers");
+	}
+}
+
+void five_subject(){
+	int s[5],total;
+	float per;
+	printf("Enter marks of 5 subjects: \n");
+	for(int i = 0; i<5; i++){
+		scanf("%d",&s[i]);
+		total += s[i];
+	}
+	
+	int failed = 0;
+	
+	per = (total/500.0)*100.0;
+	printf("%.2f PERCENTAGE",per);
+	for(int i = 0; i<5; i++){
+		if(s[i]<35){
+			failed = 1;
+		}
+	}
+	printf("\n");
+	if(failed){
+		printf("FAILED");
+	}
+	else if(per>=85){
+		printf("FIRST DIVISION");
+	}
+	else if(per>=75){
+		printf("SECOND DIVISION");
+	}
+	else if(per>=50){
+		printf("THIRD DIVISION");
+	}
+	else if(per>=30){
+		printf("FOURTH DIVISION");
+	}
+	else{
+		printf("LAST DIVISION");
+	}
+}
+
+void profit_loss(){
+	int dif,SP,CP;
+	printf("Enter SP and CP: ");
+	scanf("%d,%d",&SP,&CP);
+	dif = CP-SP;
+	if(dif>0){
+		printf("%d profit",dif);
+	}
+	else if(dif<0){
+		printf("%d loss",-dif);
+	}
+	else{
+		printf("neither loss nor gain");
+	}
+}
+
+void quadratic_roots(){
+	float det,a,b,c,x1,x2;
+	float real,imag;
+	printf("Enter the value of a,b,c: ");
+	scanf("%f,%f,%f",&a,&b,&c);
+	det = b*b - 4*a*c;
+	if(det>=0){
+		x1 = (-b + sqrt(det))/2*a;
+		x2 = (-b - sqrt(det))/2*a;
+		printf("x = %.2f,%.2f",x1,x2);
+	}
+	else if(det<0){
+		real = (-b/2*a);
+		imag = sqrt(-det)/2*a;
+		printf("x = %.2f+%.2fi,%.2f-%.2fi",real,imag,real,imag);
+	}
+}
+
+void electricity_charge(){
+	float t_cost, units;
+	printf("Enter the electricity consumed: ");
+	scanf("%f",&units);
+	//if(units<20)
+	float cost_80 = 0, cost_100 = 0, cost_101 = 0;
+	if(units<=20){
+	 	cost_80 = (units/20.0)*80.0;
+	}
+	else if(units<100){
+		cost_80 = (units/20.0)*80.0;
+		cost_100 = (units-20.0)*7.26;
+
+	}
+	else{
+		cost_80 = (units/20.0)*80.0;
+		cost_100 = (units-20.0)*7.26;
+		cost_101 = (units-120.0)*9.5;
+	}
+	t_cost = cost_80 + cost_100+cost_101;
+	printf("Total cost = %.2f",t_cost);
+}
+
+void three_equal(){
+	int a,b,c;
+	printf("Enter three numbers: ");
+	scanf("%d,%d,%d",&a,&b,&c);
+	if(a == b){
+		if(a == c){
+			printf("equal numbers");
+		}
+		else{
+			printf("Not equal numbers");
+		}
+	}
+	else if (b == c){
+		if(a == b){
+			printf("equal numbers");
+		}
+		else{
+			printf("Not equal numbers");
+		}
+	}
+	else{
+		printf("Not equal numbers");
+	}
+}
+
+void choice(){
+	int a,b,choice,result;
+	printf("Enter two numbers: ");
+	scanf("%d,%d",&a,&b);
+	printf("\nInput choice: \n1. SUM\n2. PRODUCT\n3. DIFFERENCE\n5. DIVISION");
+	scanf("%d",&choice);
+	if(choice == 1){
+		result = a+b;
+	}
+	else if(choice == 2){
+		result = a*b;
+	}
+	else if(choice == 3){
+		result = a-b;
+	}
+	else if(choice == 4){
+		result = a/b;
+	}
+	else{
+		printf("Enter proper choice");
+		return;
+	}
+	printf("The result = %d",result);
+}
 //menu's and menu items
 Menu_Item labwork1[] = {
 	{1, "Find the sum and average of three numbers", program,{.pfunction = l1_sumandaverage}},
@@ -163,7 +383,17 @@ Menu_Item labwork1[] = {
 };
 
 Menu_Item labwork2[] = {
-	{1, "something",program},
+	{1,"Odd or even",program,{.pfunction = odd_even}},
+	{2,"Check eligibility of age",program,{.pfunction = age_eligible}},
+	{3,"Check if number is positive or negativek"},
+	{4,"Print the greatest number",program,{.pfunction = greater_number}},
+	{5,"Print the middle number",program,{.pfunction = middle_number}},
+	{6,"Five subjects",program,{.pfunction = five_subject}},
+	{7,"Print profit and loss",program,{.pfunction = profit_loss}},
+	{8,"Quadratic roots",program,{.pfunction = quadratic_roots}},
+	{9,"Calculate the electric bill",program,{.pfunction = electricity_charge}},
+	{10,"Check if three numbers are equal",program,{.pfunction = three_equal}},
+	{11,"Menu drive program",program,{.pfunction = choice}},
 	{0, "Return",RETURN,{.pfunction = NULL}}
 };
 
@@ -194,11 +424,11 @@ int main(){
 
 void pre_function(){
 	system("cls");
-	printf("%s\n",author);
+	printf("AUTHOR NAME: %s\n",author);
 }
 
 void post_function(){
-	printf("\n\nPress Enter to return to the submenu...");
+	printf("\n\n\nPress Enter to return to the submenu...");
 	while(getchar() != '\n');
 	getchar();
 }
@@ -255,8 +485,9 @@ void print_menu(Menu_Item *curr_menu){
 		for(int i = 0; curr_menu[i].id != 0; i++){
 			printf("%d. %s\n",curr_menu[i].id,curr_menu[i].title);
 			if(curr_menu[i+1].type == RETURN || curr_menu[i+1].type == QUIT){
-				printf("%d. %s\n",curr_menu[i+1],curr_menu[i+1].title);
+				printf("%d. %s\n",curr_menu[i+1].id,curr_menu[i+1].title);
 			}
 		}	
 		printf("\n");
 }
+
