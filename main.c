@@ -3,7 +3,7 @@
 #include <stdlib.h>
 #include <math.h>
 
-#define author "Sambeed Shrestha"
+#define author "AUTHOR_NAME"
 
 typedef void (*program_function)();
 
@@ -233,30 +233,31 @@ void five_subject(){
 	int failed = 0;
 	
 	per = (total/500.0)*100.0;
-	printf("%.2f PERCENTAGE",per);
 	for(int i = 0; i<5; i++){
 		if(s[i]<35){
 			failed = 1;
 		}
 	}
 	printf("\n");
+	printf("PERCENTAGE: %.2f%",per);
+	printf("\nTOTAL: %.2f\n",total);
 	if(failed){
 		printf("FAILED");
 	}
-	else if(per>=85){
+	else if(per>=75){
+		printf("DISTINCTION");
+	}
+	else if(per>=60){
 		printf("FIRST DIVISION");
 	}
-	else if(per>=75){
+	else if(per>=45){
 		printf("SECOND DIVISION");
 	}
-	else if(per>=50){
+	else if(per>=35){
 		printf("THIRD DIVISION");
 	}
-	else if(per>=30){
-		printf("FOURTH DIVISION");
-	}
 	else{
-		printf("LAST DIVISION");
+		printf("FAILED");
 	}
 }
 
