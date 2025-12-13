@@ -283,13 +283,13 @@ void quadratic_roots(){
 	scanf("%f,%f,%f",&a,&b,&c);
 	det = b*b - 4*a*c;
 	if(det>=0){
-		x1 = (-b + sqrt(det))/2*a;
-		x2 = (-b - sqrt(det))/2*a;
+		x1 = (-b + sqrt(det))/(2*a);
+		x2 = (-b - sqrt(det))/(2*a);
 		printf("x = %.2f,%.2f",x1,x2);
 	}
 	else if(det<0){
-		real = (-b/2*a);
-		imag = sqrt(-det)/2*a;
+		real = (-b/(2*a));
+		imag = sqrt(-det)/(2*a);
 		printf("x = %.2f+%.2fi,%.2f-%.2fi",real,imag,real,imag);
 	}
 }
@@ -385,7 +385,7 @@ Menu_Item labwork1[] = {
 Menu_Item labwork2[] = {
 	{1,"Odd or even",program,{.pfunction = odd_even}},
 	{2,"Check eligibility of age",program,{.pfunction = age_eligible}},
-	{3,"Check if number is positive or negativek"},
+	{3,"Check if number is positive or negative",program,{.pfunction = positive_negative}},
 	{4,"Print the greatest number",program,{.pfunction = greater_number}},
 	{5,"Print the middle number",program,{.pfunction = middle_number}},
 	{6,"Five subjects",program,{.pfunction = five_subject}},
